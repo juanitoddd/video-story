@@ -1,15 +1,18 @@
 import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {FONT_FAMILY} from './constants';
+// import {FONT_FAMILY} from '../Compositions/HelloWorld/constants';
+import { loadFont } from "@remotion/google-fonts/TitanOne";
+const { fontFamily } = loadFont(); // "Titan One"
 
 const title: React.CSSProperties = {
-	fontFamily: FONT_FAMILY,
+	fontFamily: fontFamily,
 	fontWeight: 'bold',
 	fontSize: 100,
 	textAlign: 'center',
 	position: 'absolute',
 	bottom: 160,
 	width: '100%',
+	textShadow: '-5px -5px 0 #fff, 5px -5px 0 #fff, -5px 5px 0 #fff, 5px 5px 0 #fff'
 };
 
 const word: React.CSSProperties = {
@@ -18,25 +21,24 @@ const word: React.CSSProperties = {
 	display: 'inline-block',
 };
 
-export const Title: React.FC<{
-	titleText: string;
-	titleColor: string;
-}> = ({titleText, titleColor}) => {
+export const Title: React.FC<{ titleText: string; titleColor: string }> = ({titleText, titleColor}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
 
-	const words = titleText.split(' ');
-
+	const words = titleText.split(' ');	
 	return (
 		<h1 style={title}>
-			{words.map((t, i) => {
-				const delay = i * 5;
+			{words.map((t, i) => {				
+				const delay = i * 10;
 
 				const scale = spring({
 					fps: videoConfig.fps,
 					frame: frame - delay,
 					config: {
-						damping: 200,
+						damping: 10,						
+						mass: 1,
+						stiffness: 100,
+						overshootClamping: false
 					},
 				});
 
