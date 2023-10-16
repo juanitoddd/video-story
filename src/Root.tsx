@@ -1,6 +1,4 @@
 import {Composition, Folder} from 'remotion';
-// import {HelloWorld, myCompSchema} from './Compositions/HelloWorld/HelloWorld';
-// import {Logo, myCompSchema2} from './Compositions/HelloWorld/Logo';
 import { Scene1, scene1Schema } from './Compositions/Scene1/Scene1';
 import { Scene2 } from './Compositions/Scene1/Scene2';
 
@@ -16,7 +14,7 @@ export const RemotionRoot: React.FC = () => {
 					// You can take the "id" to render a video:
 					// npx remotion render src/index.ts <id> out/video.mp4
 					id="Scene2"
-					// component={Scene1}
+					// Component={Scene1}
 					component={Scene2}
 					durationInFrames={150}
 					fps={fps}

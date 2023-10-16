@@ -14,27 +14,33 @@ export const scene1Schema = z.object({
 });
 
 export const Scene2: React.FC<z.infer<typeof scene1Schema>> = () => {
-	// const frame = useCurrentFrame();
+	// Const frame = useCurrentFrame();
 	// const {durationInFrames, fps} = useVideoConfig();
 
   return (
 		<TransitionSeries>
-      
 			<TransitionSeries.Sequence durationInFrames={45}>          
-				<AbsoluteFill style={{backgroundColor: 'white'}}>
-					First
-					<Title titleText={'hola'} titleColor={'#fff'} />
-					<Background fileName='background.png'></Background>
+				<AbsoluteFill style={{backgroundColor: 'white'}}>					
+					<Title titleText="First" titleColor="#fff" />
+					<Background fileName='background.png' />
 				</AbsoluteFill>
-      </TransitionSeries.Sequence>
+			</TransitionSeries.Sequence>
 			
 			<TransitionSeries.Transition durationInFrames={15} />
 
 			<TransitionSeries.Sequence durationInFrames={60}>
-				<AbsoluteFill style={{backgroundColor: 'white'}}>
-					Second
-					<Title titleText={'hola'} titleColor={'#fff'} />
-					<Background fileName='background1.png'></Background>
+				<AbsoluteFill style={{backgroundColor: 'white'}}>					
+					<Title titleText="Second" titleColor="#fff" />
+					<Background fileName='background1.png' />
+				</AbsoluteFill>
+			</TransitionSeries.Sequence>
+
+			<TransitionSeries.Transition durationInFrames={15} />
+
+			<TransitionSeries.Sequence durationInFrames={60}>
+				<AbsoluteFill style={{backgroundColor: 'white'}}>					
+					<Title titleText="Third" titleColor="#fff" />
+					<Background fileName='background.png' />
 				</AbsoluteFill>
 			</TransitionSeries.Sequence>
 
